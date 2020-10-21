@@ -1,0 +1,23 @@
+<h1>Productos</h1>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Portada</th>
+            <th>Nombre</th>
+            <th>Artista</th>
+            <th>Tipo</th>
+            <th>Precio</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products" [ngClass]="{'alert alert-primary': product.clearance}">
+            <td><img class="portada" [src]="product.image" [alt]="product.name"></td>
+            <td>{{product.name}}</td>
+            <td>{{product.artist}}</td>
+            <td>{{product.type}}</td>
+            <td>ARS {{product.price | currency}}</td>
+            <td><span class="badge badge-secondary" *ngIf="product.stock==0">Sin stock</span></td>
+        </tr>
+    </tbody>
+</table>
