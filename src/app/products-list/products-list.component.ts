@@ -16,7 +16,8 @@ export class ProductsListComponent implements OnInit {
       type:'Album',
       price:400,
       stock:3,
-      clearance: false, 
+      clearance: false,
+      quantity: 0, 
     },
     {
       image:'assets/img/chango.jpg',
@@ -26,6 +27,7 @@ export class ProductsListComponent implements OnInit {
       price:1700,
       stock:5,
       clearance: true,
+      quantity: 0,
     },
     {
       image:'assets/img/crucero-cristal.jpg',
@@ -34,7 +36,8 @@ export class ProductsListComponent implements OnInit {
       type:'Album',
       price:550,
       stock:0,
-      clearance: false,  
+      clearance: false, 
+      quantity: 0,
     },
     {
       image:'assets/img/forestal-tape.jpg',
@@ -43,7 +46,8 @@ export class ProductsListComponent implements OnInit {
       type:'Vinilo',
       price:2200,
       stock:8,
-      clearance: true, 
+      clearance: true,
+      quantity: 0, 
     },
     {
       image:'assets/img/ochocientos-envolventes.jpg',
@@ -52,7 +56,8 @@ export class ProductsListComponent implements OnInit {
       type:'Album, Cassette',
       price:620,
       stock:0,
-      clearance: false,  
+      clearance: false, 
+      quantity: 0,
     }
   ];
   
@@ -61,4 +66,15 @@ export class ProductsListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  upQuantity(product: Product):void {
+    if (product.quantity < product.stock) {
+      product.quantity++;
+    }
+  }
+
+  downQuantity(product: Product) :void {
+    if (product.quantity > 0) {
+      product.quantity--;
+    }
+  }
 }
