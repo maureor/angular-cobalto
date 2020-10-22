@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let product of products" [ngClass]="{'alert alert-primary': product.clearance}">
+        <tr *ngFor="let product of products" [ngClass]="{'alert alert-primary': product.release}">
             <td><img class="portada" [src]="product.image" [alt]="product.name"></td>
             <td>{{product.name}}</td>
             <td>{{product.artist}}</td>

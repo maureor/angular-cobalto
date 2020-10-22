@@ -5,6 +5,7 @@ export interface Product {
     type: string;
     price: number;
     stock: number;
+    release: boolean;
     clearance: boolean;
     quantity: number;
 }
