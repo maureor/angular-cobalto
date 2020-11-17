@@ -14,16 +14,26 @@
     <tbody>
         <tr *ngFor="let product of products" [ngClass]="{'alert alert-primary': product.release}">
             <td><img class="portada" [src]="product.image" [alt]="product.name"></td>
-            <td>{{product.name}}</td>
+            <td>{{product.name}}
+                <span class="badge badge-primary" *ngIf="product.release">¡LANZAMIENTO!</span>
+            </td>
             <td>{{product.artist}}</td>
             <td>{{product.type}}</td>
-            <td>ARS {{product.price | currency}}</td>
-            <td><span class="badge badge-secondary" *ngIf="product.stock==0">Sin stock</span></td>
+            <td>ARS {{product.price | currency}}
+                <span class="badge badge-info" *ngIf="product.clearance">OFERTA</span>
+            </td>
             <td>
-                <div class="form-row">
-                    <button class="btn btn-secondary btn-sm" (click)="downQuantity(product)">-</button>
+                <span class="badge badge-secondary" *ngIf="product.stock==0">SIN STOCK</span>              
+            </td>
+            <td>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-secondary btn-sm" (click)="downQuantity(product)">-</button>
+                    </div>
                         <input type="number" [(ngModel)]="product.quantity">
-                    <button class="btn btn-primary btn-sm" (click)="upQuantity(product)">+</button>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary btn-sm" (click)="upQuantity(product)">+</button>
+                    </div>
             </div>
             </td>
         </tr>
