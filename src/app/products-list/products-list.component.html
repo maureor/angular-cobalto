@@ -7,7 +7,6 @@
             <th>Artista</th>
             <th>Tipo</th>
             <th>Precio</th>
-            <th>Stock</th>
             <th>Compra</th>
         </tr>
     </thead>
@@ -23,18 +22,8 @@
                 <span class="badge badge-info" *ngIf="product.clearance">OFERTA</span>
             </td>
             <td>
-                <span class="badge badge-secondary" *ngIf="product.stock==0">SIN STOCK</span>              
-            </td>
-            <td>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-secondary btn-sm" (click)="downQuantity(product)">-</button>
-                    </div>
-                        <input type="number" [(ngModel)]="product.quantity">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary btn-sm" (click)="upQuantity(product)">+</button>
-                    </div>
-            </div>
+                <span class="badge badge-secondary" *ngIf="product.stock==0">SIN STOCK</span>
+                <app-input-integer [(quantity)]="product.quantity" [max]="product.stock" *ngIf="product.stock" (maxReached)="maxReached($event)"></app-input-integer>
             </td>
         </tr>
     </tbody>
