@@ -24,6 +24,7 @@
             <td>
                 <span class="badge badge-secondary" *ngIf="product.stock==0">SIN STOCK</span>
                 <app-input-integer [(quantity)]="product.quantity" [max]="product.stock" *ngIf="product.stock" (maxReached)="maxReached($event)"></app-input-integer>
+                <button class="btn btn-primary" (click)="addToCart(product)">Comprar</button>
             </td>
         </tr>
     </tbody>
